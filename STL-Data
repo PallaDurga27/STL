@@ -1,0 +1,104 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+int main() {
+    //STL
+    
+    vector<int>A;
+    vector<char>B;
+    A.push_back(10);
+    A.push_back(20);
+    A.push_back(30);  // {10, 40, 20, 30}
+    A.push_back(40);
+    A.push_back(100);
+    //A.insert(A.begin()+1,40);
+    //A.insert(A.begin()+2,100);
+    //{10 40 100 20 30 }
+    // insert a data into a vector based on the position (address)
+    
+    for(int i =0; i< A.size() ; i++){
+        cout <<A[i] <<" ";
+    }
+    
+  /*  vector<string>data;
+    data.push_back("Python");
+    data.push_back("Durga");
+    
+    vector<int>arr(100,10);
+    //arr -> 0 0 0 0 0 ......... 0 100 items
+    vector<char>arr(100,'A');
+    vector<string>arr(100,"jsghs");
+    */
+    
+    // give a key check wether key is present in the vector or not
+    //{10 40 100 20 30 }
+    // i->i->i-->i->i
+    int key = 100;
+    bool found = false;
+    /*for(int i =0; i<A.size() ; i++) {
+        if(A[i] == key) { // {10 40 20 30 } == 100 false; 100 == true
+            found = true;
+            break;
+        }
+    }
+    if(found == true) {
+        cout << "The key is present" << endl;
+    }
+    else{
+        cout <<"Not presnt" << endl;
+    }*/
+    
+    //find
+    // it search the key from the begin (starting address)
+    // once it find the key stops there
+    // otherwise it reach it to the end
+    
+   /* if(find(A.begin(),A.end(),key)!=A.end()){
+        cout <<"yes the key is present" << endl;
+    }
+    else{
+        cout << "Not present" << endl;
+    }
+    // time complexity 0(n)
+    //linear search
+    int low =0;
+    int high = A.size() - 1;
+    while(low <= high) {
+        int mid = (low + high) / 2;
+        
+        if(A[mid] == key) {
+            found = true;
+            break;
+
+        }
+        else if(A[mid] > key) {
+            high = mid -1;
+        }
+        else{
+            low = mid +1;
+        }
+    }*/
+    
+    // abstraction = to hiding an implementation details
+    
+    if(binary_search(A.begin(),A.end(),key)){
+        cout << "Yes the key is present";
+    }
+    else{
+        cout << "Not present";
+    }
+    
+    // map --> dictionary (word : meaning) --> (key : value)
+    string s = "jbdjbjbjsbhsjd";
+    //map (key : value) --> (char : occ) (k : 1)
+    map<char,int>mp;  // map is a sorted container
+    for(int i = 0; i< s.size(); i++) {
+        mp[s[i]]++;
+        //mp[k]++ (k : 2) ( f : 1) (j : 2) ( d : 1) 
+    }
+    for(auto i : mp) {
+        cout << i.first << " " << i.second << endl;
+    }
+    
+    
+}
